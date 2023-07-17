@@ -1,23 +1,28 @@
 <script>
 import HeaderComponent from './components/HeaderComponent.vue'
 import MainComponent from './components/MainComponent.vue'
-import FooterComponent from './components/FooterComponent.vue'
+import Axios from 'axios'
 
 export default {
   name: "App",
   components: {
     HeaderComponent,
-    MainComponent,
-    FooterComponent
+    MainComponent
 
   },
   data() {
     return {
+      characters: {}
     }
   },
-  props: {},
   methods: {
 
+  },
+  created() {
+    Axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
+      .then(response => {
+        this.characters = response.data.data
+      })
   }
 }
 </script>
@@ -25,12 +30,10 @@ export default {
 <template>
   <HeaderComponent />
 
-  <MainComponent />
-
-  <FooterComponent />
+  <MainComponent :characters="characters" />
 </template>
 
 <style lang="scss">
 @use "./assets/scss/main.scss";
-@use "./assets/scss/reset.scss"
+@use "./assets/scss/reset.scss";
 </style>
