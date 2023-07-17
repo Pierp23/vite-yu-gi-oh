@@ -13,8 +13,13 @@ export default {
 </script>
 
 <template>
-    <header>
-        HEADER
+    <header class="d-flex align-items-center mx-5 py-3">
+        <div>
+            LOGO
+        </div>
+        <h1 class="mx-3">
+            Yu-Gi-Oh API
+        </h1>
     </header>
 </template>
 
