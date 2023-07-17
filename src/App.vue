@@ -1,7 +1,7 @@
 <script>
-import HeaderComponent from 'components/HeaderComponent.vue'
-import MainComponent from 'components/MainComponent.vue'
-import FooterComponent from 'components/FooterComponent.vue'
+import HeaderComponent from './components/HeaderComponent.vue'
+import MainComponent from './components/MainComponent.vue'
+import FooterComponent from './components/FooterComponent.vue'
 
 export default {
   name: "App",
@@ -30,4 +30,7 @@ export default {
   <FooterComponent />
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+@use "./assets/scss/main.scss";
+@use "./assets/scss/reset.scss"
+</style>
