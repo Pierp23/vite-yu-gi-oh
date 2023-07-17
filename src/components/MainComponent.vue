@@ -1,14 +1,13 @@
 <script>
+import { store } from '../store';
+
+
+
 export default {
     name: "MainComponent",
     data() {
         return {
-        }
-    },
-    props: {
-        characters: {
-            type: Object,
-            default: {}
+            store
         }
     },
     methods: {
@@ -21,7 +20,7 @@ export default {
     <main class="py-4">
         <div class="container px-0 my-3">
             <select name="" id="">
-                <option value="">Alien</option>
+                <option value="1">Alien</option>
             </select>
         </div>
         <div class="container px-0 bg-white ">
@@ -31,7 +30,7 @@ export default {
                 </p>
             </div>
             <div class="cards row d-flex px-5">
-                <div class="col-4 col-md-3 col-lg-2 " v-for="(character, i) in characters" :key="i">
+                <div class="col-4 col-md-3 col-lg-2" v-for="(character, i) in store.characters" :key="i">
                     <div class="single-card m-auto text-center my-3">
                         <div class="img-card ">
                             <img class="img-fluid" :src="character.card_images[0].image_url_small" alt="">
