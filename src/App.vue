@@ -17,13 +17,21 @@ export default {
     }
   },
   methods: {
+    getArchetype() {
+
+    }
 
   },
   created() {
     Axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
       .then(response => {
         this.store.characters = response.data.data
-      })
+      }),
+      Axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')
+        .then(response => {
+          this.store.archetypes = response.data
+          console.log(this.store.archetypes)
+        })
   }
 }
 </script>

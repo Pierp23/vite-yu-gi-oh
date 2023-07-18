@@ -19,14 +19,17 @@ export default {
 <template>
     <main class="py-4">
         <div class="container px-0 my-3">
-            <select name="" id="">
-                <option value="1">Alien</option>
+            <select>
+                <option value="" selected>Select an archetype...</option>
+                <option v-for="(archetype, i) in store.archetypes" :key="i" value="">
+                    {{ archetype.archetype_name }}
+                </option>
             </select>
         </div>
         <div class="container px-0 bg-white ">
             <div class="bg-black">
                 <p class="text-white p-3">
-                    Found X cards
+                    Found {{ store.characters.length }} cards
                 </p>
             </div>
             <div class="cards row d-flex px-5">
